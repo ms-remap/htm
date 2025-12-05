@@ -1,6 +1,8 @@
+'use client'
+
 import { useState, useEffect } from 'react';
 import { Send, CheckCircle, XCircle, Clock } from 'lucide-react';
-import { processPendingEmails } from '../services/emailSender';
+import { processPendingEmails } from '@/services/emailSender';
 
 interface EmailProcessorProps {
   autoProcess?: boolean;
