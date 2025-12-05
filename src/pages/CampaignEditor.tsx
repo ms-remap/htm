@@ -14,6 +14,7 @@ import {
   Send,
 } from 'lucide-react';
 import VariablePicker from '../components/VariablePicker';
+import { sendEmailViaAPI, EmailPayload } from '../services/emailSender';
 
 interface Attachment {
   type: 'image' | 'file';
@@ -360,14 +361,7 @@ export default function CampaignEditor({ onNavigate, campaignId }: CampaignEdito
         return;
       }
 
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-      if (!supabaseUrl || !supabaseKey) {
-        throw new Error('Supabase configuration missing. Please check your .env file.');
-      }
-
-      const payload = {
+      const payload: EmailPayload = {
         to: testEmailAddress,
         subject: finalSubject,
         body: finalBody,
@@ -382,39 +376,21 @@ export default function CampaignEditor({ onNavigate, campaignId }: CampaignEdito
         attachments: sequence.attachments || [],
       };
 
-      console.log('Test Email Preview:', {
+      console.log('Sending test email:', {
         to: payload.to,
         subject: payload.subject,
         from: `${payload.from_name} <${payload.from_email}>`,
         smtp_host: payload.smtp_config.host,
-        body: payload.body,
       });
 
-      const emailPreview = `
-Test Email Configuration:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      const result = await sendEmailViaAPI(payload);
 
-To: ${payload.to}
-From: ${payload.from_name} <${payload.from_email}>
-Subject: ${payload.subject}
+      if (result.success) {
+        alert(`Test email sent successfully to ${testEmailAddress}!\n\nSubject: ${payload.subject}`);
+      } else {
+        alert(`Failed to send test email: ${result.error}`);
+      }
 
-SMTP Server: ${payload.smtp_config.host}:${payload.smtp_config.port}
-Username: ${payload.smtp_config.username}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Email Body:
-${payload.body}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Note: In production, this email would be sent via SMTP.
-For now, email sending is logged to console and email_logs table.
-      `.trim();
-
-      console.log(emailPreview);
-
-      alert(`Test Email Preview Generated!\n\n${emailPreview}\n\nCheck the browser console for full details.`);
       setTestEmailModalOpen(false);
       setTestEmailAddress('');
     } catch (error: any) {

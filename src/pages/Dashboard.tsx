@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { Send, Users, Mail, TrendingUp, BarChart2, Clock } from 'lucide-react';
+import EmailProcessor from '../components/EmailProcessor';
 
 interface Stats {
   totalCampaigns: number;
@@ -144,6 +145,10 @@ export default function Dashboard() {
             </div>
           );
         })}
+      </div>
+
+      <div className="mb-8">
+        <EmailProcessor autoProcess={true} intervalSeconds={60} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
