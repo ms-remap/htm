@@ -91,9 +91,8 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
 
   const processPendingEmails = async () => {
     try {
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`;
+      const apiUrl = `${import.meta.env.VITE_API_URL}/api/send-email`;
       const headers = {
-        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
         'Content-Type': 'application/json',
       };
 
