@@ -72,7 +72,7 @@ export default function Settings() {
 
         <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
           <div className="flex items-center gap-3 mb-6">
-            <Globe className="w-5 h-5 text-green-400" />
+            <Globe className="w-5 h-5 text-orange-500" />
             <h2 className="text-xl font-bold text-white">Timezone</h2>
           </div>
           <div>
@@ -155,7 +155,7 @@ export default function Settings() {
 
         <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
           <div className="flex items-center gap-3 mb-6">
-            <SettingsIcon className="w-5 h-5 text-purple-400" />
+            <SettingsIcon className="w-5 h-5 text-orange-500" />
             <h2 className="text-xl font-bold text-white">Email Settings</h2>
           </div>
           <div className="space-y-4">

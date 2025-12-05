@@ -581,7 +581,7 @@ For now, email sending is logged to console and email_logs table.
                 Select email accounts to rotate through. Leads will be evenly distributed across selected accounts. Each lead's follow-ups will use the same email account.
               </p>
               {availableEmailAccounts.length === 0 ? (
-                <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-4 text-yellow-300 text-sm">
+                <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4 text-orange-300 text-sm">
                   No active email accounts found. Please add and activate email accounts first.
                 </div>
               ) : (
@@ -615,7 +615,7 @@ For now, email sending is logged to console and email_logs table.
                 </div>
               )}
               {selectedEmailAccounts.length > 0 && (
-                <div className="mt-2 text-xs text-green-400">
+                <div className="mt-2 text-xs text-orange-400">
                   ✓ {selectedEmailAccounts.length} email account{selectedEmailAccounts.length !== 1 ? 's' : ''} selected
                 </div>
               )}
@@ -667,7 +667,7 @@ For now, email sending is logged to console and email_logs table.
                       setTestingSequence(seqIndex);
                       setTestEmailModalOpen(true);
                     }}
-                    className="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm"
+                    className="flex items-center gap-2 px-3 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors text-sm"
                   >
                     <Send className="w-4 h-4" />
                     Test Email
@@ -675,7 +675,7 @@ For now, email sending is logged to console and email_logs table.
                   {sequences.length > 1 && (
                     <button
                       onClick={() => removeSequence(seqIndex)}
-                      className="p-2 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
+                      className="p-2 text-orange-500 hover:bg-orange-500/10 rounded-lg transition-colors"
                     >
                       <Trash2 className="w-5 h-5" />
                     </button>
@@ -705,7 +705,7 @@ For now, email sending is logged to console and email_logs table.
                         {seq.subject_variants.length > 1 && (
                           <button
                             onClick={() => removeVariant(seqIndex, 'subject', varIndex)}
-                            className="p-2 text-red-400 hover:bg-red-500/10 rounded-lg"
+                            className="p-2 text-orange-500 hover:bg-orange-500/10 rounded-lg"
                           >
                             <Trash2 className="w-5 h-5" />
                           </button>
@@ -745,7 +745,7 @@ For now, email sending is logged to console and email_logs table.
                         {seq.body_variants.length > 1 && (
                           <button
                             onClick={() => removeVariant(seqIndex, 'body', varIndex)}
-                            className="p-2 text-red-400 hover:bg-red-500/10 rounded-lg h-fit"
+                            className="p-2 text-orange-500 hover:bg-orange-500/10 rounded-lg h-fit"
                           >
                             <Trash2 className="w-5 h-5" />
                           </button>
@@ -778,9 +778,9 @@ For now, email sending is logged to console and email_logs table.
                           className="flex items-center gap-3 bg-neutral-800 rounded-lg p-3"
                         >
                           {attachment.type === 'image' ? (
-                            <Image className="w-5 h-5 text-blue-400" />
+                            <Image className="w-5 h-5 text-orange-400" />
                           ) : (
-                            <Paperclip className="w-5 h-5 text-green-400" />
+                            <Paperclip className="w-5 h-5 text-neutral-400" />
                           )}
                           <div className="flex-1 min-w-0">
                             <div className="text-sm font-medium text-white truncate">
@@ -790,7 +790,7 @@ For now, email sending is logged to console and email_logs table.
                           </div>
                           <button
                             onClick={() => removeAttachment(seqIndex, attachIndex)}
-                            className="p-1 text-red-400 hover:bg-red-500/10 rounded"
+                            className="p-1 text-orange-500 hover:bg-orange-500/10 rounded"
                           >
                             <X className="w-4 h-4" />
                           </button>
@@ -822,7 +822,7 @@ For now, email sending is logged to console and email_logs table.
 
                   {seq.presend_webhook_enabled && (
                     <div className="space-y-3 ml-7">
-                      <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3 text-sm text-blue-300 flex gap-2">
+                      <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-3 text-sm text-orange-300 flex gap-2">
                         <Info className="w-4 h-4 flex-shrink-0 mt-0.5" />
                         <div>
                           This webhook receives the lead data before sending each email. The full lead object (email, name, company, custom_fields, etc.) will be sent to your endpoint.
@@ -898,7 +898,7 @@ For now, email sending is logged to console and email_logs table.
 
                   {seq.content_webhook_enabled && (
                     <div className="space-y-3 ml-7">
-                      <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-3 text-sm text-green-300 flex gap-2">
+                      <div className="bg-neutral-700 border border-neutral-600 rounded-lg p-3 text-sm text-neutral-300 flex gap-2">
                         <Info className="w-4 h-4 flex-shrink-0 mt-0.5" />
                         <div>
                           <strong>How it works:</strong> This webhook receives lead data and should return JSON with subject and body fields.
@@ -1035,11 +1035,11 @@ For now, email sending is logged to console and email_logs table.
                 value={testEmailAddress}
                 onChange={(e) => setTestEmailAddress(e.target.value)}
                 placeholder="test@example.com"
-                className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
 
               {selectedEmailAccounts.length === 0 && (
-                <div className="mt-3 text-sm text-yellow-400 bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-3">
+                <div className="mt-3 text-sm text-orange-400 bg-orange-500/10 border border-orange-500/20 rounded-lg p-3">
                   Note: Please select email accounts in campaign settings before sending test.
                 </div>
               )}
@@ -1058,7 +1058,7 @@ For now, email sending is logged to console and email_logs table.
               <button
                 onClick={sendTestEmail}
                 disabled={sendingTest || !testEmailAddress || selectedEmailAccounts.length === 0}
-                className="flex-1 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {sendingTest ? (
                   <>Sending...</>

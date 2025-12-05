@@ -120,9 +120,9 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':
-        return 'bg-green-50 text-green-600';
+        return 'bg-orange-50 text-orange-600';
       case 'paused':
-        return 'bg-amber-50 text-amber-600';
+        return 'bg-neutral-200 text-neutral-700';
       case 'draft':
         return 'bg-neutral-100 text-neutral-600';
       case 'archived':
@@ -165,7 +165,7 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
           </button>
           <button
             onClick={() => onNavigate('campaign-editor')}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-all duration-200 shadow-sm"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-all duration-200 shadow-sm"
           >
             <Plus className="w-4 h-4" strokeWidth={2.5} />
             New Campaign
@@ -268,7 +268,7 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
                   )}
                   <button
                     onClick={() => deleteCampaign(campaign.id)}
-                    className="p-2 bg-red-50 hover:bg-red-100 text-red-500 rounded-lg transition-all duration-200"
+                    className="p-2 bg-orange-50 hover:bg-orange-100 text-orange-600 rounded-lg transition-all duration-200"
                     title="Delete campaign"
                   >
                     <Trash2 className="w-4 h-4" strokeWidth={2} />
@@ -434,7 +434,7 @@ function AddLeadsModal({
                       type="checkbox"
                       checked={selectedLeads.has(lead.id)}
                       onChange={() => toggleLead(lead.id)}
-                      className="w-5 h-5 accent-blue-500 rounded"
+                      className="w-5 h-5 accent-orange-500 rounded"
                     />
                     <div className="flex-1">
                       <div className="text-neutral-900 font-medium">
@@ -460,7 +460,7 @@ function AddLeadsModal({
               <button
                 onClick={addLeadsToCampaign}
                 disabled={selectedLeads.size === 0 || saving}
-                className="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+                className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
               >
                 {saving ? 'Adding...' : `Add ${selectedLeads.size} Lead${selectedLeads.size !== 1 ? 's' : ''}`}
               </button>

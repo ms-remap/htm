@@ -124,10 +124,10 @@ export default function Analytics() {
           const Icon = card.icon;
           const colors = {
             blue: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-            green: 'bg-green-500/10 text-green-400 border-green-500/20',
-            purple: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+            green: 'bg-neutral-700 text-neutral-300 border-neutral-600',
+            purple: 'bg-neutral-700 text-neutral-300 border-neutral-600',
             orange: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-            red: 'bg-red-500/10 text-red-400 border-red-500/20',
+            red: 'bg-neutral-700 text-neutral-300 border-neutral-600',
           };
 
           return (
@@ -176,7 +176,7 @@ export default function Analytics() {
                   </div>
                   <div className="w-full bg-neutral-800 rounded-full h-2">
                     <div
-                      className="bg-green-500 h-2 rounded-full transition-all"
+                      className="bg-orange-500 h-2 rounded-full transition-all"
                       style={{ width: `${Math.min(analytics.openRate, 100)}%` }}
                     />
                   </div>
@@ -220,7 +220,7 @@ export default function Analytics() {
 
         <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
           <div className="flex items-center gap-3 mb-6">
-            <TrendingUp className="w-5 h-5 text-green-400" />
+            <TrendingUp className="w-5 h-5 text-orange-500" />
             <h2 className="text-xl font-bold text-white">Campaign Health</h2>
           </div>
           <div className="space-y-4">
@@ -231,10 +231,10 @@ export default function Analytics() {
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-medium ${
                       analytics.openRate > 20
-                        ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                        ? 'bg-orange-500/10 text-orange-400 border border-orange-500/20'
                         : analytics.openRate > 10
-                        ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20'
-                        : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                        ? 'bg-neutral-700 text-neutral-300 border border-neutral-600'
+                        : 'bg-neutral-800 text-neutral-400 border border-neutral-700'
                     }`}
                   >
                     {analytics.openRate > 20
@@ -249,10 +249,10 @@ export default function Analytics() {
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-medium ${
                       (analytics.bounced / analytics.sent) * 100 < 2
-                        ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                        ? 'bg-orange-500/10 text-orange-400 border border-orange-500/20'
                         : (analytics.bounced / analytics.sent) * 100 < 5
-                        ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20'
-                        : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                        ? 'bg-neutral-700 text-neutral-300 border border-neutral-600'
+                        : 'bg-neutral-800 text-neutral-400 border border-neutral-700'
                     }`}
                   >
                     {(analytics.bounced / analytics.sent) * 100 < 2
@@ -267,10 +267,10 @@ export default function Analytics() {
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-medium ${
                       analytics.replyRate > 5
-                        ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                        ? 'bg-orange-500/10 text-orange-400 border border-orange-500/20'
                         : analytics.replyRate > 2
-                        ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20'
-                        : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                        ? 'bg-neutral-700 text-neutral-300 border border-neutral-600'
+                        : 'bg-neutral-800 text-neutral-400 border border-neutral-700'
                     }`}
                   >
                     {analytics.replyRate > 5

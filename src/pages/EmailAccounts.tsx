@@ -131,9 +131,9 @@ export default function EmailAccounts() {
                       <p className="text-sm text-gray-400">{account.email}</p>
                     </div>
                     {account.status === 'active' ? (
-                      <CheckCircle className="w-5 h-5 text-green-400" />
+                      <CheckCircle className="w-5 h-5 text-orange-500" />
                     ) : (
-                      <AlertCircle className="w-5 h-5 text-yellow-400" />
+                      <AlertCircle className="w-5 h-5 text-neutral-400" />
                     )}
                   </div>
 
@@ -165,7 +165,7 @@ export default function EmailAccounts() {
                           }
                           className={`px-3 py-1 rounded-full text-xs font-medium ${
                             account.warmup_enabled
-                              ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                              ? 'bg-orange-500/10 text-orange-500 border border-orange-500/20'
                               : 'bg-neutral-700 text-gray-400'
                           }`}
                         >
@@ -190,7 +190,7 @@ export default function EmailAccounts() {
 
                 <button
                   onClick={() => deleteAccount(account.id)}
-                  className="ml-4 p-2 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
+                  className="ml-4 p-2 text-orange-500 hover:bg-orange-500/10 rounded-lg transition-colors"
                 >
                   <Trash2 className="w-5 h-5" />
                 </button>

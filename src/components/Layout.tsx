@@ -39,7 +39,7 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
     <div className="min-h-screen bg-neutral-50">
       <div className="lg:hidden fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-xl border-b border-neutral-200 z-50 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center shadow-sm">
+          <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center shadow-sm">
             <Mail className="w-4 h-4 text-white" strokeWidth={2.5} />
           </div>
           <span className="font-semibold text-neutral-900 tracking-tight">OutreachPro</span>
@@ -60,7 +60,7 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
         <div className="flex flex-col h-full">
           <div className="p-6 border-b border-neutral-200/50 hidden lg:block">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center shadow-sm">
+              <div className="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center shadow-sm">
                 <Mail className="w-5 h-5 text-white" strokeWidth={2.5} />
               </div>
               <div>
@@ -83,7 +83,7 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
                   }}
                   className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
                     isActive
-                      ? 'bg-blue-500 text-white shadow-sm'
+                      ? 'bg-orange-500 text-white shadow-sm'
                       : 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900'
                   }`}
                 >

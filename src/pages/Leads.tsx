@@ -327,14 +327,14 @@ export default function Leads() {
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-green-500/10 text-green-400 border border-green-500/20">
+                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-neutral-200 text-neutral-700 border border-neutral-300">
                         {lead.status}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right">
                       <button
                         onClick={() => deleteLead(lead.id)}
-                        className="text-red-400 hover:text-red-300 opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="text-orange-500 hover:text-orange-600 opacity-0 group-hover:opacity-100 transition-opacity"
                       >
                         <Trash2 className="w-5 h-5" />
                       </button>

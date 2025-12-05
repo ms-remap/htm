@@ -62,19 +62,19 @@ export default function Dashboard() {
       value: stats.activeCampaigns,
       total: stats.totalCampaigns,
       icon: Send,
-      color: 'blue',
+      color: 'orange',
     },
     {
       label: 'Total Leads',
       value: stats.totalLeads,
       icon: Users,
-      color: 'green',
+      color: 'grey',
     },
     {
       label: 'Emails Sent',
       value: stats.emailsSent,
       icon: Mail,
-      color: 'purple',
+      color: 'grey',
     },
     {
       label: 'Open Rate',
@@ -86,7 +86,7 @@ export default function Dashboard() {
       label: 'Reply Rate',
       value: `${stats.replyRate.toFixed(1)}%`,
       icon: BarChart2,
-      color: 'pink',
+      color: 'grey',
     },
   ];
 
@@ -116,11 +116,8 @@ export default function Dashboard() {
         {statCards.map((card, index) => {
           const Icon = card.icon;
           const colors = {
-            blue: 'bg-blue-50 text-blue-500',
-            green: 'bg-green-50 text-green-500',
-            purple: 'bg-violet-50 text-violet-500',
-            orange: 'bg-amber-50 text-amber-500',
-            pink: 'bg-pink-50 text-pink-500',
+            orange: 'bg-orange-50 text-orange-500',
+            grey: 'bg-neutral-100 text-neutral-600',
           };
 
           return (
@@ -164,8 +161,8 @@ export default function Dashboard() {
 
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-9 h-9 bg-green-50 rounded-lg flex items-center justify-center">
-              <TrendingUp className="w-5 h-5 text-green-500" strokeWidth={2} />
+            <div className="w-9 h-9 bg-orange-50 rounded-lg flex items-center justify-center">
+              <TrendingUp className="w-5 h-5 text-orange-500" strokeWidth={2} />
             </div>
             <h2 className="text-xl font-semibold text-neutral-900 tracking-tight">Performance Trends</h2>
           </div>
