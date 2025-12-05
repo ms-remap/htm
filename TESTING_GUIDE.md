@@ -118,9 +118,9 @@ From the **Campaigns** page:
 - Click the "Play" button on your campaign to activate it
 - The status will change from "draft" to "active"
 
-### 5. Process Emails (Trigger Sending)
-- Click "Send Pending Emails" button at the top of Campaigns page
-- This triggers the edge function to process queued emails
+### 5. Email Sending
+The system manages email sending through the campaign workflow:
+- When campaigns are active, emails will be queued for sending
 - The system will:
   - Find leads ready to be contacted
   - **Call pre-send webhook** (if enabled) - sends lead data to your endpoint
@@ -208,16 +208,9 @@ All data is stored in Supabase with full RLS security:
 
 ## Edge Functions
 
-Two Supabase Edge Functions are deployed:
+One Supabase Edge Function is deployed:
 
-1. **send-email** - Processes queued emails
-   - Finds leads ready for contact
-   - Applies sequences
-   - Calls webhooks
-   - Creates logs
-   - Schedules follow-ups
-
-2. **process-webhook** - Handles webhook calls
+1. **process-webhook** - Handles webhook calls
    - Fetches dynamic content
    - Authenticates with external APIs
    - Returns data for email injection
