@@ -26,6 +26,8 @@ interface Sequence {
   name: string;
   step_number: number;
   delay_days: number;
+  delay_hours: number;
+  delay_minutes: number;
   subject_variants: string[];
   body_variants: string[];
   attachments: Attachment[];
@@ -55,6 +57,8 @@ export default function CampaignEditor({ onNavigate, campaignId }: CampaignEdito
       name: 'Initial Email',
       step_number: 1,
       delay_days: 0,
+      delay_hours: 0,
+      delay_minutes: 0,
       subject_variants: [''],
       body_variants: [''],
       attachments: [],
@@ -124,7 +128,9 @@ export default function CampaignEditor({ onNavigate, campaignId }: CampaignEdito
               id: s.id,
               name: s.name,
               step_number: s.step_number,
-              delay_days: s.delay_days,
+              delay_days: s.delay_days || 0,
+              delay_hours: s.delay_hours || 0,
+              delay_minutes: s.delay_minutes || 0,
               subject_variants: s.subject_variants,
               body_variants: s.body_variants,
               presend_webhook_enabled: s.presend_webhook_enabled || false,
@@ -218,7 +224,9 @@ export default function CampaignEditor({ onNavigate, campaignId }: CampaignEdito
         campaign_id: finalCampaignId,
         name: seq.name,
         step_number: index + 1,
-        delay_days: seq.delay_days,
+        delay_days: seq.delay_days || 0,
+        delay_hours: seq.delay_hours || 0,
+        delay_minutes: seq.delay_minutes || 0,
         subject_variants: seq.subject_variants,
         body_variants: seq.body_variants,
         attachments: seq.attachments || [],
@@ -424,6 +432,8 @@ For now, email sending is logged to console and email_logs table.
         name: `Follow-up ${sequences.length}`,
         step_number: sequences.length + 1,
         delay_days: 3,
+        delay_hours: 0,
+        delay_minutes: 0,
         subject_variants: [''],
         body_variants: [''],
         attachments: [],
@@ -643,20 +653,54 @@ For now, email sending is logged to console and email_logs table.
                       placeholder="Sequence name"
                     />
                     {seqIndex > 0 && (
-                      <div className="flex items-center gap-2 text-sm text-gray-400">
+                      <div className="flex items-center gap-2 text-sm text-gray-400 flex-wrap">
                         <Clock className="w-4 h-4" />
-                        <input
-                          type="number"
-                          value={seq.delay_days}
-                          onChange={(e) =>
-                            updateSequence(seqIndex, {
-                              delay_days: parseInt(e.target.value) || 0,
-                            })
-                          }
-                          className="w-16 bg-neutral-800 border border-neutral-700 rounded px-2 py-1 text-white"
-                          min="0"
-                        />
-                        <span>days after previous step</span>
+                        <span>Wait</span>
+                        <div className="flex items-center gap-1">
+                          <input
+                            type="number"
+                            value={seq.delay_days}
+                            onChange={(e) =>
+                              updateSequence(seqIndex, {
+                                delay_days: parseInt(e.target.value) || 0,
+                              })
+                            }
+                            className="w-14 bg-neutral-800 border border-neutral-700 rounded px-2 py-1 text-white text-center"
+                            min="0"
+                          />
+                          <span>days</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <input
+                            type="number"
+                            value={seq.delay_hours}
+                            onChange={(e) =>
+                              updateSequence(seqIndex, {
+                                delay_hours: parseInt(e.target.value) || 0,
+                              })
+                            }
+                            className="w-14 bg-neutral-800 border border-neutral-700 rounded px-2 py-1 text-white text-center"
+                            min="0"
+                            max="23"
+                          />
+                          <span>hours</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <input
+                            type="number"
+                            value={seq.delay_minutes}
+                            onChange={(e) =>
+                              updateSequence(seqIndex, {
+                                delay_minutes: parseInt(e.target.value) || 0,
+                              })
+                            }
+                            className="w-14 bg-neutral-800 border border-neutral-700 rounded px-2 py-1 text-white text-center"
+                            min="0"
+                            max="59"
+                          />
+                          <span>minutes</span>
+                        </div>
+                        <span>after previous step</span>
                       </div>
                     )}
                   </div>

@@ -84,14 +84,89 @@ export default function Settings() {
               onChange={(e) => setSettings({ ...settings, timezone: e.target.value })}
               className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
             >
-              <option value="UTC">UTC</option>
-              <option value="America/New_York">Eastern Time</option>
-              <option value="America/Chicago">Central Time</option>
-              <option value="America/Denver">Mountain Time</option>
-              <option value="America/Los_Angeles">Pacific Time</option>
-              <option value="Europe/London">London</option>
-              <option value="Europe/Paris">Paris</option>
-              <option value="Asia/Tokyo">Tokyo</option>
+              <option value="UTC">UTC (Coordinated Universal Time)</option>
+              <optgroup label="North America">
+                <option value="America/New_York">Eastern Time (New York)</option>
+                <option value="America/Chicago">Central Time (Chicago)</option>
+                <option value="America/Denver">Mountain Time (Denver)</option>
+                <option value="America/Los_Angeles">Pacific Time (Los Angeles)</option>
+                <option value="America/Phoenix">Arizona (Phoenix)</option>
+                <option value="America/Anchorage">Alaska (Anchorage)</option>
+                <option value="Pacific/Honolulu">Hawaii (Honolulu)</option>
+                <option value="America/Toronto">Eastern Time (Toronto)</option>
+                <option value="America/Vancouver">Pacific Time (Vancouver)</option>
+                <option value="America/Mexico_City">Central Time (Mexico City)</option>
+              </optgroup>
+              <optgroup label="Europe">
+                <option value="Europe/London">London (GMT/BST)</option>
+                <option value="Europe/Dublin">Dublin</option>
+                <option value="Europe/Paris">Paris (CET)</option>
+                <option value="Europe/Berlin">Berlin</option>
+                <option value="Europe/Madrid">Madrid</option>
+                <option value="Europe/Rome">Rome</option>
+                <option value="Europe/Amsterdam">Amsterdam</option>
+                <option value="Europe/Brussels">Brussels</option>
+                <option value="Europe/Vienna">Vienna</option>
+                <option value="Europe/Athens">Athens</option>
+                <option value="Europe/Helsinki">Helsinki</option>
+                <option value="Europe/Stockholm">Stockholm</option>
+                <option value="Europe/Copenhagen">Copenhagen</option>
+                <option value="Europe/Oslo">Oslo</option>
+                <option value="Europe/Warsaw">Warsaw</option>
+                <option value="Europe/Prague">Prague</option>
+                <option value="Europe/Budapest">Budapest</option>
+                <option value="Europe/Zurich">Zurich</option>
+                <option value="Europe/Moscow">Moscow</option>
+                <option value="Europe/Istanbul">Istanbul</option>
+              </optgroup>
+              <optgroup label="Asia">
+                <option value="Asia/Dubai">Dubai (UAE)</option>
+                <option value="Asia/Kolkata">India (Kolkata)</option>
+                <option value="Asia/Mumbai">India (Mumbai)</option>
+                <option value="Asia/Karachi">Pakistan (Karachi)</option>
+                <option value="Asia/Dhaka">Bangladesh (Dhaka)</option>
+                <option value="Asia/Bangkok">Thailand (Bangkok)</option>
+                <option value="Asia/Singapore">Singapore</option>
+                <option value="Asia/Manila">Philippines (Manila)</option>
+                <option value="Asia/Hong_Kong">Hong Kong</option>
+                <option value="Asia/Shanghai">China (Shanghai)</option>
+                <option value="Asia/Beijing">China (Beijing)</option>
+                <option value="Asia/Tokyo">Japan (Tokyo)</option>
+                <option value="Asia/Seoul">South Korea (Seoul)</option>
+                <option value="Asia/Jakarta">Indonesia (Jakarta)</option>
+                <option value="Asia/Kuala_Lumpur">Malaysia (Kuala Lumpur)</option>
+                <option value="Asia/Ho_Chi_Minh">Vietnam (Ho Chi Minh)</option>
+                <option value="Asia/Taipei">Taiwan (Taipei)</option>
+                <option value="Asia/Riyadh">Saudi Arabia (Riyadh)</option>
+                <option value="Asia/Jerusalem">Israel (Jerusalem)</option>
+                <option value="Asia/Tehran">Iran (Tehran)</option>
+              </optgroup>
+              <optgroup label="Australia & Pacific">
+                <option value="Australia/Sydney">Sydney (AEST)</option>
+                <option value="Australia/Melbourne">Melbourne</option>
+                <option value="Australia/Brisbane">Brisbane</option>
+                <option value="Australia/Perth">Perth</option>
+                <option value="Australia/Adelaide">Adelaide</option>
+                <option value="Pacific/Auckland">New Zealand (Auckland)</option>
+                <option value="Pacific/Fiji">Fiji</option>
+                <option value="Pacific/Guam">Guam</option>
+              </optgroup>
+              <optgroup label="South America">
+                <option value="America/Sao_Paulo">Brazil (São Paulo)</option>
+                <option value="America/Buenos_Aires">Argentina (Buenos Aires)</option>
+                <option value="America/Santiago">Chile (Santiago)</option>
+                <option value="America/Bogota">Colombia (Bogotá)</option>
+                <option value="America/Lima">Peru (Lima)</option>
+                <option value="America/Caracas">Venezuela (Caracas)</option>
+              </optgroup>
+              <optgroup label="Africa">
+                <option value="Africa/Cairo">Egypt (Cairo)</option>
+                <option value="Africa/Johannesburg">South Africa (Johannesburg)</option>
+                <option value="Africa/Lagos">Nigeria (Lagos)</option>
+                <option value="Africa/Nairobi">Kenya (Nairobi)</option>
+                <option value="Africa/Casablanca">Morocco (Casablanca)</option>
+                <option value="Africa/Algiers">Algeria (Algiers)</option>
+              </optgroup>
             </select>
           </div>
         </div>
