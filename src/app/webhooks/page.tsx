@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Layout from '@/components/Layout'
-import Webhooks from '@/pages/Webhooks'
+import Webhooks from '@/page-components/Webhooks'
 
 export default function WebhooksPage() {
   const { user, loading } = useAuth()

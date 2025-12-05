@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Layout from '@/components/Layout'
-import Inbox from '@/pages/Inbox'
+import Inbox from '@/page-components/Inbox'
 
 export default function InboxPage() {
   const { user, loading } = useAuth()

@@ -15,10 +15,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  output: 'standalone',
-  experimental: {
-    runtime: 'nodejs',
-  },
 }
 
 module.exports = nextConfig

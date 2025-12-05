@@ -4,7 +4,9 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Layout from '@/components/Layout'
-import Campaigns from '@/pages/Campaigns'
+import Campaigns from '@/page-components/Campaigns'
+
+export const dynamic = 'force-dynamic'
 
 export default function CampaignsPage() {
   const { user, loading } = useAuth()

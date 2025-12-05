@@ -4,7 +4,9 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Layout from '@/components/Layout'
-import Dashboard from '@/pages/Dashboard'
+import Dashboard from '@/page-components/Dashboard'
+
+export const dynamic = 'force-dynamic'
 
 export default function DashboardPage() {
   const { user, loading } = useAuth()

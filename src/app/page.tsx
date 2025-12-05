@@ -3,7 +3,9 @@
 import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import Login from '@/pages/Login'
+import Login from '@/page-components/Login'
+
+export const dynamic = 'force-dynamic'
 
 export default function Home() {
   const { user, loading } = useAuth()

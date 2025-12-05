@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Layout from '@/components/Layout'
-import EmailAccounts from '@/pages/EmailAccounts'
+import EmailAccounts from '@/page-components/EmailAccounts'
 
 export default function EmailAccountsPage() {
   const { user, loading } = useAuth()

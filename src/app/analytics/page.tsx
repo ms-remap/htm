@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Layout from '@/components/Layout'
-import Analytics from '@/pages/Analytics'
+import Analytics from '@/page-components/Analytics'
 
 export default function AnalyticsPage() {
   const { user, loading } = useAuth()

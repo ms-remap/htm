@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Layout from '@/components/Layout'
-import Leads from '@/pages/Leads'
+import Leads from '@/page-components/Leads'
 
 export default function LeadsPage() {
   const { user, loading } = useAuth()

@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Layout from '@/components/Layout'
-import Settings from '@/pages/Settings'
+import Settings from '@/page-components/Settings'
 
 export default function SettingsPage() {
   const { user, loading } = useAuth()
