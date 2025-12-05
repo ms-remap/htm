@@ -36,7 +36,7 @@ export default function Settings() {
   return (
     <div className="p-8 max-w-4xl mx-auto">
       <div className="mb-10">
-        <h1 className="text-4xl font-semibold text-neutral-900 mb-2 tracking-tight">Settings</h1>
+        <h1 className="text-4xl font-semibold text-neutral-700 mb-2 tracking-tight">Settings</h1>
         <p className="text-neutral-500">Configure your account and preferences</p>
       </div>
 
@@ -46,7 +46,7 @@ export default function Settings() {
             <div className="w-9 h-9 bg-orange-50 rounded-lg flex items-center justify-center">
               <User className="w-5 h-5 text-orange-500" strokeWidth={2} />
             </div>
-            <h2 className="text-xl font-semibold text-neutral-900 tracking-tight">Profile</h2>
+            <h2 className="text-xl font-semibold text-neutral-700 tracking-tight">Profile</h2>
           </div>
           <div className="space-y-4">
             <div>
@@ -55,7 +55,7 @@ export default function Settings() {
               </label>
               <input
                 type="text"
-                className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+                className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
                 placeholder="John Doe"
               />
             </div>
@@ -65,7 +65,7 @@ export default function Settings() {
               </label>
               <input
                 type="text"
-                className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+                className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
                 placeholder="Acme Inc"
               />
             </div>
@@ -77,7 +77,7 @@ export default function Settings() {
             <div className="w-9 h-9 bg-green-50 rounded-lg flex items-center justify-center">
               <Globe className="w-5 h-5 text-green-500" strokeWidth={2} />
             </div>
-            <h2 className="text-xl font-semibold text-neutral-900 tracking-tight">Timezone</h2>
+            <h2 className="text-xl font-semibold text-neutral-700 tracking-tight">Timezone</h2>
           </div>
           <div>
             <label className="block text-sm font-medium text-neutral-700 mb-2">
@@ -86,7 +86,7 @@ export default function Settings() {
             <select
               value={settings.timezone}
               onChange={(e) => setSettings({ ...settings, timezone: e.target.value })}
-              className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
             >
               <option value="UTC">UTC (Coordinated Universal Time)</option>
               <option value="America/New_York">Eastern Time (ET)</option>
@@ -120,7 +120,7 @@ export default function Settings() {
             <div className="w-9 h-9 bg-orange-50 rounded-lg flex items-center justify-center">
               <Clock className="w-5 h-5 text-orange-500" strokeWidth={2} />
             </div>
-            <h2 className="text-xl font-semibold text-neutral-900 tracking-tight">Sending Schedule</h2>
+            <h2 className="text-xl font-semibold text-neutral-700 tracking-tight">Sending Schedule</h2>
           </div>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
@@ -134,7 +134,7 @@ export default function Settings() {
                   onChange={(e) =>
                     setSettings({ ...settings, sendingHoursStart: e.target.value })
                   }
-                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
                 />
               </div>
               <div>
@@ -147,7 +147,7 @@ export default function Settings() {
                   onChange={(e) =>
                     setSettings({ ...settings, sendingHoursEnd: e.target.value })
                   }
-                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
                 />
               </div>
             </div>
@@ -179,12 +179,12 @@ export default function Settings() {
             <div className="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center">
               <SettingsIcon className="w-5 h-5 text-neutral-600" strokeWidth={2} />
             </div>
-            <h2 className="text-xl font-semibold text-neutral-900 tracking-tight">Email Settings</h2>
+            <h2 className="text-xl font-semibold text-neutral-700 tracking-tight">Email Settings</h2>
           </div>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-neutral-900 font-medium">Track Email Opens</div>
+                <div className="text-neutral-700 font-medium">Track Email Opens</div>
                 <div className="text-sm text-neutral-500">
                   Insert tracking pixels to monitor open rates
                 </div>
@@ -196,7 +196,7 @@ export default function Settings() {
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-neutral-900 font-medium">Track Link Clicks</div>
+                <div className="text-neutral-700 font-medium">Track Link Clicks</div>
                 <div className="text-sm text-neutral-500">
                   Replace links with tracking URLs
                 </div>
@@ -208,7 +208,7 @@ export default function Settings() {
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-neutral-900 font-medium">Auto-unsubscribe</div>
+                <div className="text-neutral-700 font-medium">Auto-unsubscribe</div>
                 <div className="text-sm text-neutral-500">
                   Automatically stop emailing leads who unsubscribe
                 </div>
