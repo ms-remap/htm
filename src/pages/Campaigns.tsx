@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { Plus, Play, Pause, Archive, Edit, Trash2, Users, Mail, UserPlus, X, Send } from 'lucide-react';
+import { processPendingEmails as processEmailsService } from '../services/emailSender';
 
 interface Campaign {
   id: string;
@@ -91,25 +92,14 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
 
   const processPendingEmails = async () => {
     try {
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`;
-      const headers = {
-        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-        'Content-Type': 'application/json',
-      };
+      const result = await processEmailsService(10);
 
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({}),
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`${response.status}: ${errorText}`);
+      if (result.processed === 0) {
+        alert('No pending emails to send');
+      } else {
+        alert(`Processed ${result.processed} emails:\n${result.sent} sent successfully\n${result.failed} failed`);
       }
 
-      const result = await response.json();
-      alert(result.message || 'Email processing completed');
       loadCampaigns();
     } catch (error: any) {
       console.error('Error processing emails:', error);
