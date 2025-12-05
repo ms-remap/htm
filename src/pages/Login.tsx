@@ -33,10 +33,10 @@ export default function Login() {
     <div className="min-h-screen bg-neutral-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500 rounded-2xl mb-4 shadow-sm">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500 rounded-2xl mb-4 shadow-sm">
             <Mail className="w-8 h-8 text-white" strokeWidth={2.5} />
           </div>
-          <h1 className="text-3xl font-semibold text-neutral-700 mb-2 tracking-tight">OutreachPro</h1>
+          <h1 className="text-3xl font-semibold text-neutral-900 mb-2 tracking-tight">OutreachPro</h1>
           <p className="text-neutral-500">Email outreach automation platform</p>
         </div>
 
@@ -46,8 +46,8 @@ export default function Login() {
               onClick={() => setIsSignUp(false)}
               className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all duration-200 ${
                 !isSignUp
-                  ? 'bg-white text-neutral-700 shadow-sm'
-                  : 'text-neutral-600 hover:text-neutral-700'
+                  ? 'bg-white text-neutral-900 shadow-sm'
+                  : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
               Sign In
@@ -56,8 +56,8 @@ export default function Login() {
               onClick={() => setIsSignUp(true)}
               className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all duration-200 ${
                 isSignUp
-                  ? 'bg-white text-neutral-700 shadow-sm'
-                  : 'text-neutral-600 hover:text-neutral-700'
+                  ? 'bg-white text-neutral-900 shadow-sm'
+                  : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
               Sign Up
@@ -74,7 +74,7 @@ export default function Login() {
                   type="text"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                   placeholder="John Doe"
                 />
               </div>
@@ -91,7 +91,7 @@ export default function Login() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-11 pr-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+                  className="w-full pl-11 pr-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                   placeholder="you@example.com"
                 />
               </div>
@@ -108,7 +108,7 @@ export default function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full pl-11 pr-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+                  className="w-full pl-11 pr-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                   placeholder="••••••••"
                 />
               </div>
@@ -123,7 +123,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm"
             >
               {loading && <Loader className="w-5 h-5 animate-spin" strokeWidth={2} />}
               {isSignUp ? 'Create Account' : 'Sign In'}

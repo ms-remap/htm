@@ -308,14 +308,6 @@ Deno.serve(async (req: Request) => {
           sent_at: new Date().toISOString(),
         });
 
-        const delayDays = sequence.delay_days || 0;
-        const delayHours = sequence.delay_hours || 0;
-        const delayMinutes = sequence.delay_minutes || 0;
-        const totalDelayMs =
-          (delayDays * 24 * 60 * 60 * 1000) +
-          (delayHours * 60 * 60 * 1000) +
-          (delayMinutes * 60 * 1000);
-
         await supabase
           .from("campaign_leads")
           .update({
@@ -323,8 +315,10 @@ Deno.serve(async (req: Request) => {
             current_sequence_step: sequence.step_number,
             last_contacted_at: new Date().toISOString(),
             next_followup_at:
-              totalDelayMs > 0
-                ? new Date(Date.now() + totalDelayMs).toISOString()
+              sequence.delay_days > 0
+                ? new Date(
+                    Date.now() + sequence.delay_days * 24 * 60 * 60 * 1000
+                  ).toISOString()
                 : null,
           })
           .eq("id", campaignLead.id);

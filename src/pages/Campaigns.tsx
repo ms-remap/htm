@@ -151,13 +151,13 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
     <div className="p-8 max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 gap-4">
         <div>
-          <h1 className="text-4xl font-semibold text-neutral-700 mb-2 tracking-tight">Campaigns</h1>
+          <h1 className="text-4xl font-semibold text-neutral-900 mb-2 tracking-tight">Campaigns</h1>
           <p className="text-neutral-500 text-base">Manage your email outreach campaigns</p>
         </div>
         <div className="flex gap-2">
           <button
             onClick={processPendingEmails}
-            className="bg-neutral-100 hover:bg-neutral-200 text-neutral-700 px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-all duration-200 shadow-sm"
+            className="bg-neutral-100 hover:bg-neutral-200 text-neutral-900 px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-all duration-200 shadow-sm"
             title="Process pending emails for all active campaigns"
           >
             <Send className="w-4 h-4" strokeWidth={2} />
@@ -165,7 +165,7 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
           </button>
           <button
             onClick={() => onNavigate('campaign-editor')}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-all duration-200 shadow-sm"
+            className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-all duration-200 shadow-sm"
           >
             <Plus className="w-4 h-4" strokeWidth={2.5} />
             New Campaign
@@ -178,13 +178,13 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
           <div className="w-16 h-16 bg-neutral-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Mail className="w-8 h-8 text-neutral-400" strokeWidth={2} />
           </div>
-          <h3 className="text-xl font-semibold text-neutral-700 mb-2">No campaigns yet</h3>
+          <h3 className="text-xl font-semibold text-neutral-900 mb-2">No campaigns yet</h3>
           <p className="text-neutral-500 mb-6 text-sm">
             Create your first campaign to start sending emails
           </p>
           <button
             onClick={() => onNavigate('campaign-editor')}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-xl font-medium inline-flex items-center gap-2 transition-all duration-200 shadow-sm"
+            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2.5 rounded-xl font-medium inline-flex items-center gap-2 transition-all duration-200 shadow-sm"
           >
             <Plus className="w-4 h-4" strokeWidth={2.5} />
             Create Campaign
@@ -200,7 +200,7 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-xl font-semibold text-neutral-700 tracking-tight">{campaign.name}</h3>
+                    <h3 className="text-xl font-semibold text-neutral-900 tracking-tight">{campaign.name}</h3>
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(
                         campaign.status
@@ -396,10 +396,10 @@ function AddLeadsModal({
       <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[80vh] overflow-hidden shadow-2xl flex flex-col">
         <div className="p-6 border-b border-neutral-200 flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-semibold text-neutral-700 tracking-tight">Add Leads to Campaign</h2>
+            <h2 className="text-xl font-semibold text-neutral-900 tracking-tight">Add Leads to Campaign</h2>
             <p className="text-sm text-neutral-500 mt-1 font-medium">{campaign.name}</p>
           </div>
-          <button onClick={onClose} className="text-neutral-400 hover:text-neutral-700 transition-colors">
+          <button onClick={onClose} className="text-neutral-400 hover:text-neutral-900 transition-colors">
             <X className="w-6 h-6" strokeWidth={2} />
           </button>
         </div>
@@ -414,7 +414,7 @@ function AddLeadsModal({
               <div className="w-16 h-16 bg-neutral-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-neutral-400" strokeWidth={2} />
               </div>
-              <p className="text-neutral-700 font-medium">No available leads to add</p>
+              <p className="text-neutral-900 font-medium">No available leads to add</p>
               <p className="text-sm text-neutral-500 mt-2">All your leads are already in this campaign</p>
             </div>
           </div>
@@ -434,10 +434,10 @@ function AddLeadsModal({
                       type="checkbox"
                       checked={selectedLeads.has(lead.id)}
                       onChange={() => toggleLead(lead.id)}
-                      className="w-5 h-5 accent-orange-500 rounded"
+                      className="w-5 h-5 accent-blue-500 rounded"
                     />
                     <div className="flex-1">
-                      <div className="text-neutral-700 font-medium">
+                      <div className="text-neutral-900 font-medium">
                         {lead.first_name} {lead.last_name}
                       </div>
                       <div className="text-sm text-neutral-500">{lead.email}</div>
@@ -453,14 +453,14 @@ function AddLeadsModal({
             <div className="p-6 border-t border-neutral-200 flex gap-3">
               <button
                 onClick={onClose}
-                className="flex-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 py-3 rounded-xl font-medium transition-all duration-200"
+                className="flex-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 py-3 rounded-xl font-medium transition-all duration-200"
               >
                 Cancel
               </button>
               <button
                 onClick={addLeadsToCampaign}
                 disabled={selectedLeads.size === 0 || saving}
-                className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+                className="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
               >
                 {saving ? 'Adding...' : `Add ${selectedLeads.size} Lead${selectedLeads.size !== 1 ? 's' : ''}`}
               </button>

@@ -26,8 +26,6 @@ interface Sequence {
   name: string;
   step_number: number;
   delay_days: number;
-  delay_hours?: number;
-  delay_minutes?: number;
   subject_variants: string[];
   body_variants: string[];
   attachments: Attachment[];
@@ -57,8 +55,6 @@ export default function CampaignEditor({ onNavigate, campaignId }: CampaignEdito
       name: 'Initial Email',
       step_number: 1,
       delay_days: 0,
-      delay_hours: 0,
-      delay_minutes: 0,
       subject_variants: [''],
       body_variants: [''],
       attachments: [],
@@ -129,8 +125,6 @@ export default function CampaignEditor({ onNavigate, campaignId }: CampaignEdito
               name: s.name,
               step_number: s.step_number,
               delay_days: s.delay_days,
-              delay_hours: s.delay_hours || 0,
-              delay_minutes: s.delay_minutes || 0,
               subject_variants: s.subject_variants,
               body_variants: s.body_variants,
               presend_webhook_enabled: s.presend_webhook_enabled || false,
@@ -430,8 +424,6 @@ For now, email sending is logged to console and email_logs table.
         name: `Follow-up ${sequences.length}`,
         step_number: sequences.length + 1,
         delay_days: 3,
-        delay_hours: 0,
-        delay_minutes: 0,
         subject_variants: [''],
         body_variants: [''],
         attachments: [],
@@ -651,53 +643,20 @@ For now, email sending is logged to console and email_logs table.
                       placeholder="Sequence name"
                     />
                     {seqIndex > 0 && (
-                      <div className="flex items-center gap-2 text-sm text-gray-400 flex-wrap">
+                      <div className="flex items-center gap-2 text-sm text-gray-400">
                         <Clock className="w-4 h-4" />
-                        <div className="flex items-center gap-1">
-                          <input
-                            type="number"
-                            value={seq.delay_days}
-                            onChange={(e) =>
-                              updateSequence(seqIndex, {
-                                delay_days: parseInt(e.target.value) || 0,
-                              })
-                            }
-                            className="w-16 bg-neutral-800 border border-neutral-700 rounded px-2 py-1 text-white"
-                            min="0"
-                          />
-                          <span>days</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <input
-                            type="number"
-                            value={seq.delay_hours || 0}
-                            onChange={(e) =>
-                              updateSequence(seqIndex, {
-                                delay_hours: parseInt(e.target.value) || 0,
-                              })
-                            }
-                            className="w-16 bg-neutral-800 border border-neutral-700 rounded px-2 py-1 text-white"
-                            min="0"
-                            max="23"
-                          />
-                          <span>hours</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <input
-                            type="number"
-                            value={seq.delay_minutes || 0}
-                            onChange={(e) =>
-                              updateSequence(seqIndex, {
-                                delay_minutes: parseInt(e.target.value) || 0,
-                              })
-                            }
-                            className="w-16 bg-neutral-800 border border-neutral-700 rounded px-2 py-1 text-white"
-                            min="0"
-                            max="59"
-                          />
-                          <span>minutes</span>
-                        </div>
-                        <span>after previous step</span>
+                        <input
+                          type="number"
+                          value={seq.delay_days}
+                          onChange={(e) =>
+                            updateSequence(seqIndex, {
+                              delay_days: parseInt(e.target.value) || 0,
+                            })
+                          }
+                          className="w-16 bg-neutral-800 border border-neutral-700 rounded px-2 py-1 text-white"
+                          min="0"
+                        />
+                        <span>days after previous step</span>
                       </div>
                     )}
                   </div>
