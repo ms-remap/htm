@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { Plus, Play, Pause, Archive, Edit, Trash2, Users, Mail, UserPlus, X } from 'lucide-react';
+import { Plus, Play, Pause, Archive, Edit, Trash2, Users, Mail, UserPlus, X, Send } from 'lucide-react';
 
 interface Campaign {
   id: string;
@@ -89,6 +89,33 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
     }
   };
 
+  const processPendingEmails = async () => {
+    try {
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`;
+      const headers = {
+        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json',
+      };
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({}),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`${response.status}: ${errorText}`);
+      }
+
+      const result = await response.json();
+      alert(result.message || 'Email processing completed');
+      loadCampaigns();
+    } catch (error: any) {
+      console.error('Error processing emails:', error);
+      alert(`Failed to process emails: ${error.message}`);
+    }
+  };
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -127,13 +154,23 @@ export default function Campaigns({ onNavigate }: CampaignsProps) {
           <h1 className="text-4xl font-semibold text-neutral-900 mb-2 tracking-tight">Campaigns</h1>
           <p className="text-neutral-500 text-base">Manage your email outreach campaigns</p>
         </div>
-        <button
-          onClick={() => onNavigate('campaign-editor')}
-          className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-all duration-200 shadow-sm"
-        >
-          <Plus className="w-4 h-4" strokeWidth={2.5} />
-          New Campaign
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={processPendingEmails}
+            className="bg-neutral-100 hover:bg-neutral-200 text-neutral-900 px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-all duration-200 shadow-sm"
+            title="Process pending emails for all active campaigns"
+          >
+            <Send className="w-4 h-4" strokeWidth={2} />
+            Send Pending
+          </button>
+          <button
+            onClick={() => onNavigate('campaign-editor')}
+            className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-all duration-200 shadow-sm"
+          >
+            <Plus className="w-4 h-4" strokeWidth={2.5} />
+            New Campaign
+          </button>
+        </div>
       </div>
 
       {campaigns.length === 0 ? (
