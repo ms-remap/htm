@@ -1,19 +1,9 @@
-'use client'
-
 import { useState, useRef, useEffect } from 'react';
-import { ChevronDown, User, Building2, Webhook as WebhookIcon, LucideIcon } from 'lucide-react';
+import { ChevronDown, User, Building2, Webhook as WebhookIcon } from 'lucide-react';
 
 interface VariablePickerProps {
   onSelect: (variable: string) => void;
   showWebhookVars?: boolean;
-}
-
-interface Variable {
-  label: string;
-  value: string;
-  icon: LucideIcon;
-  category: string;
-  description?: string;
 }
 
 export default function VariablePicker({ onSelect, showWebhookVars = false }: VariablePickerProps) {
@@ -31,13 +21,13 @@ export default function VariablePicker({ onSelect, showWebhookVars = false }: Va
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const variables: Variable[] = [
+  const variables = [
     { label: 'First Name', value: '{{firstName}}', icon: User, category: 'Lead Data' },
     { label: 'Last Name', value: '{{lastName}}', icon: User, category: 'Lead Data' },
     { label: 'Company', value: '{{company}}', icon: Building2, category: 'Lead Data' },
   ];
 
-  const webhookVars: Variable[] = [
+  const webhookVars = [
     { label: 'Webhook Custom Field', value: '{{webhookData.fieldName}}', icon: WebhookIcon, category: 'Webhook Data', description: 'Replace "fieldName" with your field' },
   ];
 

@@ -1,8 +1,5 @@
-'use client'
-
 import { ReactNode, useState } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
-import Link from 'next/link';
+import { useAuth } from '../contexts/AuthContext';
 import {
   Mail,
   LayoutDashboard,
@@ -20,22 +17,22 @@ import {
 interface LayoutProps {
   children: ReactNode;
   currentPage: string;
-  onNavigate?: (page: string) => void;
+  onNavigate: (page: string) => void;
 }
 
-export default function Layout({ children, currentPage }: LayoutProps) {
+export default function Layout({ children, currentPage, onNavigate }: LayoutProps) {
   const { signOut } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const menuItems = [
-    { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
-    { id: 'campaigns', icon: Send, label: 'Campaigns', href: '/campaigns' },
-    { id: 'leads', icon: Users, label: 'Leads', href: '/leads' },
-    { id: 'inbox', icon: Inbox, label: 'Inbox', href: '/inbox' },
-    { id: 'analytics', icon: BarChart3, label: 'Analytics', href: '/analytics' },
-    { id: 'email-accounts', icon: Mail, label: 'Email Accounts', href: '/email-accounts' },
-    { id: 'webhooks', icon: Webhook, label: 'Webhooks', href: '/webhooks' },
-    { id: 'settings', icon: Settings, label: 'Settings', href: '/settings' },
+    { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    { id: 'campaigns', icon: Send, label: 'Campaigns' },
+    { id: 'leads', icon: Users, label: 'Leads' },
+    { id: 'inbox', icon: Inbox, label: 'Inbox' },
+    { id: 'analytics', icon: BarChart3, label: 'Analytics' },
+    { id: 'email-accounts', icon: Mail, label: 'Email Accounts' },
+    { id: 'webhooks', icon: Webhook, label: 'Webhooks' },
+    { id: 'settings', icon: Settings, label: 'Settings' },
   ];
 
   return (
@@ -78,10 +75,12 @@ export default function Layout({ children, currentPage }: LayoutProps) {
               const Icon = item.icon;
               const isActive = currentPage === item.id;
               return (
-                <Link
+                <button
                   key={item.id}
-                  href={item.href}
-                  onClick={() => setSidebarOpen(false)}
+                  onClick={() => {
+                    onNavigate(item.id);
+                    setSidebarOpen(false);
+                  }}
                   className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
                     isActive
                       ? 'bg-orange-500 text-white shadow-sm'
@@ -90,7 +89,7 @@ export default function Layout({ children, currentPage }: LayoutProps) {
                 >
                   <Icon className="w-5 h-5" strokeWidth={2} />
                   <span className="font-medium text-sm">{item.label}</span>
-                </Link>
+                </button>
               );
             })}
           </nav>
